@@ -31,3 +31,6 @@ dist-ssr
 .cursor/
 .opencode/
 .gemini/
+
+# Plans and reports
+plans/
