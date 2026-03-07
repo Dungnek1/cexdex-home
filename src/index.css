@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  /* Tablet breakpoint per Figma CEXDEX 2026 (744px) */
+  --breakpoint-tablet: 744px;
+}
+
 /* PolySans Trial = PolySans Neutral (Figma), áp cho cả dự án */
 /* Design tokens aligned with Figma CEXDEX 2026 (node 1253:142911) */
 :root {
@@ -43,4 +48,14 @@ body {
   animation: marquee 35s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+}
+
+/* Hero strip + coin: tablet 744px — ellipse 60px breathing trên/dưới (Figma) */
+@media (min-width: 744px) and (max-width: 1023px) {
+  .hero-trading-strip {
+    top: calc(50% - 8.5px) !important;
+  }
+  .hero-coin-container {
+    top: calc(60px + 155px) !important; /* 60px từ trên + nửa chiều cao ellipse 310px */
+  }
 }

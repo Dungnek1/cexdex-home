@@ -59,8 +59,8 @@ export default function FaqSection() {
       className="flex flex-col items-center w-full"
       style={{ background: 'var(--base-black, #000)' }}
     >
-      {/* 1440: content 1200px; accordion max 800px centered (Figma 320+800) */}
-      <div className="w-full px-6 md:px-10 xl:px-[120px] flex flex-col gap-10 items-center">
+      {/* 1440: content 1200px; tablet 744: 24px padding, 696px content */}
+      <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] flex flex-col gap-10 items-center">
         {/* Header — diamond + "Support 24/7" + diamond, then title (Figma 1253:143222) */}
         <div className="flex flex-col gap-4 items-center justify-center w-full min-h-[106px]">
           <div className="flex items-center justify-center gap-4 h-[30px]">
@@ -74,7 +74,7 @@ export default function FaqSection() {
             <DiamondIcon />
           </div>
           <p
-            className="text-[48px] leading-[60px] tracking-[-0.96px] text-center whitespace-nowrap"
+            className="text-[36px] tablet:text-[44px] lg:text-[48px] leading-[44px] tablet:leading-[44px] lg:leading-[60px] tracking-[-0.96px] text-center whitespace-nowrap"
             style={{ fontFamily: 'inherit', color: 'var(--gray-10, #f1f1f1)' }}
           >
             FAQs About CEXDEX

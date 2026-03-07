@@ -1,4 +1,4 @@
-/* Live Crypto Market Prices — Figma 1253:142984: Hot Crypto Coin + table */
+/* Live Crypto Market Prices — Figma 1253:175931: header gap 16, title 48/60, table pl-28 */
 import CryptoMiniChart from './crypto-mini-chart'
 import DiamondIcon from './diamond-icon'
 
@@ -25,37 +25,41 @@ const ELLIPSE_GLOW = '/livecrypt/Ellipse%202128.svg'
 export default function LiveCryptoPrices() {
   return (
     <section
-      className="flex flex-col items-center justify-center w-full"
+      className="flex flex-col items-center justify-center w-full relative"
       style={{ background: 'var(--base-black, #000)' }}
     >
+      {/* Ellipse glow — cạnh trên khối padding là đường cắt: nửa trên hiện, nửa dưới bị clip */}
+      <div className="w-full overflow-hidden relative">
+        {/* Vùng hiển thị nửa trên ellipse — chiều cao = nửa ellipse (65px) */}
+        <div className="h-[65px] overflow-hidden relative">
+          <img
+            src={ELLIPSE_GLOW}
+            alt=""
+            className="absolute left-0 right-0 top-0 w-full h-[130px]"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center top',
+            }}
+            aria-hidden
+          />
+        </div>
 
-      {/* Ellipse glow — show bottom half only, top half clipped */}
-      <div className="w-full h-[60px] overflow-hidden relative mb-10">
-        <img
-          src={ELLIPSE_GLOW}
-          alt=""
-          className="absolute top-0 left-0 w-full h-[120px]"
-          style={{ objectFit: 'fill' }}
-          aria-hidden
-        />
-      </div>
-
-      {/* 1440: content 1200px centered */}
-      <div className="w-full px-6 md:px-10 xl:px-[120px] flex flex-col gap-[40px]">
-        {/* Header — diamond + "Hot Crypto Coin" + diamond, then title (Figma 1253:142986) */}
-        <div className="flex flex-col gap-4 items-center justify-center w-full">
-          <div className="flex items-center justify-center gap-4 h-[30px]">
-            <DiamondIcon />
+        {/* Khối padding — cạnh trên chính là đường cắt ellipse */}
+        <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] flex flex-col gap-[40px] pt-10 tablet:pt-10 tablet:pb-5 lg:pt-10 lg:pb-5 bg-[var(--base-black,#000)]">
+        {/* Header — Figma: gap 16, diamond 12px + Hot Crypto Coin + diamond, title 48/60 */}
+        <div className="flex flex-col gap-4 tablet:gap-[16px] items-center justify-center w-full">
+          <div className="flex items-center justify-center gap-4 tablet:gap-[16px] h-[30px]">
+            <DiamondIcon size={12} />
             <p
               className="text-[20px] leading-[30px] font-normal whitespace-nowrap"
               style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
             >
               Hot Crypto Coin
             </p>
-            <DiamondIcon />
+            <DiamondIcon size={12} />
           </div>
           <p
-            className="text-[48px] leading-[60px] tracking-[-0.96px] text-center whitespace-nowrap"
+            className="text-[36px] tablet:text-[48px] lg:text-[48px] leading-[44px] tablet:leading-[60px] lg:leading-[60px] tracking-[-0.96px] text-center whitespace-nowrap"
             style={{
               fontFamily: 'inherit',
               color: 'var(--gray-10, #f1f1f1)',
@@ -65,8 +69,8 @@ export default function LiveCryptoPrices() {
           </p>
         </div>
 
-        {/* Mobile card layout */}
-        <div className="flex flex-col gap-4 md:hidden">
+        {/* Mobile card layout — hidden on tablet (744px)+ */}
+        <div className="flex flex-col gap-4 tablet:hidden">
           {COINS.map((coin) => (
             <div
               key={coin.symbol}
@@ -114,59 +118,59 @@ export default function LiveCryptoPrices() {
           ))}
         </div>
 
-        {/* Desktop table — hidden on mobile */}
+        {/* Desktop/Tablet table — Figma 1253:175931: header h-70, Asset 147px pl-28, Chart 208px, row p-14 */}
         <div
-          className="hidden md:block border border-solid rounded-[12px] overflow-hidden w-full"
+          className="hidden tablet:block border border-solid rounded-[12px] overflow-hidden w-full"
           style={{ borderColor: 'var(--gray-90, #303030)' }}
         >
-          {/* Table header — h-70px, 5 columns, Manrope 18px #939393 */}
+          {/* Table header — h-70, 16px #939393 */}
           <div
             className="flex items-center w-full border-b border-solid"
             style={{ borderColor: 'var(--gray-90, #303030)', minHeight: 70 }}
           >
-            <div className="flex-1 min-w-0 h-[70px] flex items-center px-7">
+            <div className="h-[70px] flex items-center pl-[28px] w-[147px] shrink-0">
               <p
-                className="text-[18px] leading-[28px] font-normal"
-                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-50, #939393)' }}
+                className="text-[16px] leading-[24px] font-normal"
+                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
               >
                 Asset Name
               </p>
             </div>
-            <div className="flex-1 min-w-0 h-[70px] flex items-center justify-center px-7">
+            <div className="h-[70px] flex items-center justify-center px-[28px] w-[208px] shrink-0">
               <p
-                className="text-[18px] leading-[28px] font-normal text-center"
-                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-50, #939393)' }}
+                className="text-[16px] leading-[24px] font-normal text-center"
+                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
               >
                 Chart
               </p>
             </div>
-            <div className="flex-1 min-w-0 h-[70px] flex items-center justify-center px-7">
+            <div className="flex-1 min-w-0 h-[70px] flex items-center justify-center px-[28px]">
               <p
-                className="text-[18px] leading-[28px] font-normal text-center"
-                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-50, #939393)' }}
+                className="text-[16px] leading-[24px] font-normal text-center"
+                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
               >
                 Price
               </p>
             </div>
-            <div className="flex-1 min-w-0 h-[70px] flex items-center justify-center px-7">
+            <div className="flex-1 min-w-0 h-[70px] flex items-center justify-center px-[28px]">
               <p
-                className="text-[18px] leading-[28px] font-normal text-center"
-                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-50, #939393)' }}
+                className="text-[16px] leading-[24px] font-normal text-center"
+                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
               >
                 24h Change
               </p>
             </div>
-            <div className="flex-1 min-w-0 h-[70px] flex items-center justify-center px-7">
+            <div className="flex-1 min-w-0 h-[70px] flex items-center justify-center px-[28px]">
               <p
-                className="text-[18px] leading-[28px] font-normal text-center"
-                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-50, #939393)' }}
+                className="text-[16px] leading-[24px] font-normal text-center"
+                style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
               >
                 24h Volume
               </p>
             </div>
           </div>
 
-          {/* Body rows */}
+          {/* Body rows — h-100, pl-28 asset, p-14 others */}
           <div className="flex flex-col">
             {COINS.map((coin) => (
               <div key={coin.symbol}>
@@ -174,7 +178,7 @@ export default function LiveCryptoPrices() {
                   className="flex items-center w-full min-h-[100px] border-b border-solid last:border-b-0"
                   style={{ borderColor: 'var(--gray-90, #303030)' }}
                 >
-                  <div className="flex-1 min-w-0 h-[100px] flex items-center px-7">
+                  <div className="h-[100px] flex items-center pl-[28px] w-[147px] shrink-0">
                     <div className="flex items-center gap-3">
                       <CoinLogo src={coin.icon} name={coin.name} />
                       <span
@@ -185,10 +189,10 @@ export default function LiveCryptoPrices() {
                       </span>
                     </div>
                   </div>
-                  <div className="flex-1 min-w-0 h-[100px] flex items-center justify-center p-3.5">
+                  <div className="h-[100px] flex items-center justify-center p-[14px] w-[208px] shrink-0">
                     <CryptoMiniChart up={coin.changePositive} />
                   </div>
-                  <div className="flex-1 min-w-0 h-[100px] flex items-center justify-center p-3.5">
+                  <div className="flex-1 min-w-0 h-[100px] flex items-center justify-center p-[14px]">
                     <span
                       className="text-[16px] leading-[24px] font-semibold whitespace-nowrap text-right"
                       style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
@@ -196,7 +200,7 @@ export default function LiveCryptoPrices() {
                       {coin.price}
                     </span>
                   </div>
-                  <div className="flex-1 min-w-0 h-[100px] flex items-center justify-center p-3.5">
+                  <div className="flex-1 min-w-0 h-[100px] flex items-center justify-center p-[14px]">
                     <span
                       className="text-[16px] leading-[24px] font-semibold whitespace-nowrap text-right"
                       style={{
@@ -207,7 +211,7 @@ export default function LiveCryptoPrices() {
                       {coin.change}
                     </span>
                   </div>
-                  <div className="flex-1 min-w-0 h-[100px] flex items-center justify-center p-3.5">
+                  <div className="flex-1 min-w-0 h-[100px] flex items-center justify-center p-[14px]">
                     <span
                       className="text-[16px] leading-[24px] font-semibold whitespace-nowrap text-right"
                       style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
@@ -220,6 +224,7 @@ export default function LiveCryptoPrices() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   )

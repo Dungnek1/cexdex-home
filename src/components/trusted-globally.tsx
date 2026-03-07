@@ -1,4 +1,4 @@
-/* Trusted Globally — Figma 1247:141308: header + logo carousel, gradient fade hai bên */
+/* Trusted Globally — Figma 1253:175758: tablet 744, title + subtitle stack, gradient 120px */
 
 const PARTNER_LOGOS: { name: string; src: string; height?: number }[] = [
   { name: 'Tracxn', src: '/trustedlogo/tracxn.svg' },
@@ -29,7 +29,6 @@ function LogoItem({ name, src, height = DEFAULT_LOGO_HEIGHT }: { name: string; s
 }
 
 function LogoCarousel() {
-  /* 4 copies to ensure seamless loop on wide screens (5 logos x 180px = 900px per set) */
   const sets = [0, 1, 2, 3]
   return (
     <div className="trusted-marquee flex w-max">
@@ -45,48 +44,42 @@ function LogoCarousel() {
 export default function TrustedGlobally() {
   return (
     <section className="bg-[var(--Base-Black)]">
-      {/* 1440: content 1200px centered */}
-      <div className="w-full px-6 md:px-10 xl:px-[120px]">
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-[120px]">
-          <div className="flex flex-col gap-2.5 shrink-0 sm:w-[226px]">
-            <div className="flex gap-2 items-center">
-              <span className="flex gap-1" aria-hidden>
-                <span className="inline-block w-2 h-2 rotate-45 bg-[#f1f1f1]" />
-                <span className="inline-block w-2 h-2 rotate-45 bg-[#f1f1f1]" />
-              </span>
+      {/* Figma 1253:175758: tablet 696px, title + subtitle stack vertical; desktop: row */}
+      <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px]">
+        <div className="flex flex-col gap-8 tablet:flex-col tablet:gap-4 tablet:items-start tablet:max-w-[696px] tablet:mx-auto lg:max-w-none lg:mx-0 lg:flex-row lg:items-center lg:gap-[120px]">
+          {/* Title block — Figma: 2 diamonds 12px gap 8, title 30px, w-226 */}
+          <div className="flex flex-col gap-2.5 tablet:gap-[10px] shrink-0 tablet:w-[226px] lg:w-[226px]">
+            <div className="flex gap-1 tablet:gap-2 items-center">
+              <span className="inline-block w-2 h-2 tablet:w-3 tablet:h-3 rotate-45 bg-[#f1f1f1]" aria-hidden />
+              <span className="inline-block w-2 h-2 tablet:w-3 tablet:h-3 rotate-45 bg-[#f1f1f1]" aria-hidden />
             </div>
             <h2 className="text-[30px] leading-[38px] text-[#f1f1f1] font-normal">
               Trusted Globally
             </h2>
           </div>
-          <div className="flex flex-col gap-2.5 justify-center min-w-0">
-            <div className="flex gap-2 items-center">
-              <span className="flex gap-1" aria-hidden>
-                <span className="inline-block w-2 h-2 rotate-45 bg-[#939393]" />
-                <span className="inline-block w-2 h-2 rotate-45 bg-[#939393]" />
-              </span>
-            </div>
-            <p className="text-[20px] leading-[30px] font-light text-[#939393]">
+          {/* Subtitle — Figma: 20px leading 30px, full width below title on tablet */}
+          <div className="flex flex-col justify-center min-w-0 tablet:w-full">
+            <p className="text-[18px] tablet:text-[20px] leading-[28px] tablet:leading-[30px] font-light text-[#939393]">
               Powered by trusted partners, built for global compliance
             </p>
           </div>
         </div>
       </div>
 
-      {/* Partner strip — full width, h-90, gradient 150px (Figma) */}
-      <div className="pt-[30px]">
+      {/* Partner strip — Figma: h-90, gradient 120px (#050505) */}
+      <div className="pt-[30px] tablet:pt-[40px]">
         <div className="relative border-t border-b border-[#303030] h-[90px] overflow-hidden">
           <div className="absolute inset-0 flex items-center overflow-hidden">
             <LogoCarousel />
           </div>
           <div
-            className="pointer-events-none absolute left-0 top-0 bottom-0 w-[150px] z-10"
-            style={{ background: 'linear-gradient(to right, var(--Base-Black), transparent)' }}
+            className="pointer-events-none absolute left-0 top-0 bottom-0 w-[120px] z-10"
+            style={{ background: 'linear-gradient(to right, #050505, rgba(5,5,5,0))' }}
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute right-0 top-0 bottom-0 w-[150px] z-10"
-            style={{ background: 'linear-gradient(to left, var(--Base-Black), transparent)' }}
+            className="pointer-events-none absolute right-0 top-0 bottom-0 w-[120px] z-10"
+            style={{ background: 'linear-gradient(to left, #050505, rgba(5,5,5,0))' }}
             aria-hidden
           />
         </div>

@@ -1,4 +1,4 @@
-/* Market Platform — Figma 1253:142911: header + 3 cards, icons from public/market */
+/* Market Platform — Figma 1253:175860: tablet 500px cards, p-40, gap-40 */
 
 const MARKET_ICONS = {
   spot: '/market/fast-money-transfer-3d-icon-png-download-12460335%201.svg',
@@ -35,16 +35,16 @@ const cards = [
 export default function MarketPlatform() {
   return (
     <section
-      className="flex flex-col items-center gap-[70px] w-full min-h-[500px]"
+      className="flex flex-col items-center gap-[50px] tablet:gap-[50px] w-full min-h-[500px]"
       style={{ background: 'var(--base-black, #000)' }}
     >
-      {/* Header strip — title chìm: nửa dưới bị cắt bởi overflow */}
+      {/* Header strip — Figma: h-120, text 80px, tracking -3.2px */}
       <div
-        className="w-full h-[154px] relative overflow-hidden border-b border-solid flex items-center justify-center"
+        className="w-full h-[154px] tablet:h-[120px] lg:h-[154px] relative overflow-hidden border-b border-solid flex items-center justify-center"
         style={{ borderColor: 'var(--gray-90, #303030)' }}
       >
         <span
-          className="absolute left-0 right-0 text-[120px] font-normal whitespace-nowrap tracking-[-4.8px] leading-none text-center"
+          className="absolute left-0 right-0 text-[120px] tablet:text-[80px] lg:text-[120px] font-normal whitespace-nowrap tablet:tracking-[-3.2px] lg:tracking-[-4.8px] leading-none text-center"
           style={{
             fontFamily: '"PolySans Neutral", "PolySans Trial", inherit',
             background: 'linear-gradient(180deg, #aeaeae 0%, rgba(255,255,255,0.6) 60%)',
@@ -52,23 +52,23 @@ export default function MarketPlatform() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             top: 'calc(50% + 39px)',
-            transform: 'translateY(-50%)',
+            transform: 'translateY(calc(-50% - 4px))',
           }}
         >
           Market Platform
         </span>
       </div>
 
-      {/* 1200 content, 3 cards, gap 24 */}
-      <div className="w-full px-6 md:px-10 xl:px-[120px] grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Figma 1253:175860: tablet single col 500px gap-24; desktop 3 cols */}
+      <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] grid grid-cols-1 tablet:grid-cols-1 lg:grid-cols-3 gap-6 tablet:gap-[24px] tablet:max-w-[500px] tablet:mx-auto lg:max-w-none lg:mx-0 lg:gap-6">
         {cards.map((card) => (
           <div
             key={card.tag}
-            className="flex flex-col justify-between rounded-[12px] p-10 h-[500px] min-h-[400px]"
+            className="flex flex-col rounded-[12px] tablet:p-[40px] lg:p-10 gap-[40px] tablet:gap-[40px] min-h-[400px]"
             style={{ background: 'var(--base-bg-2, #141414)' }}
           >
             <div className="flex flex-col gap-[14px]">
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 tablet:gap-[10px]">
                 <span
                   className="w-3 h-3 rotate-45 shrink-0"
                   style={{ background: 'var(--gray-10, #f1f1f1)' }}
@@ -96,7 +96,7 @@ export default function MarketPlatform() {
             </div>
 
             <div
-              className="flex items-center justify-between pb-3 border-b border-solid"
+              className="flex items-center justify-between pb-3 tablet:pb-[12px] border-b border-solid"
               style={{ borderColor: 'var(--gray-80, #484848)' }}
             >
               <span
@@ -113,7 +113,7 @@ export default function MarketPlatform() {
               </span>
             </div>
 
-            <div className="h-[100px] flex items-end justify-start shrink-0">
+            <div className="h-[100px] w-[132px] flex items-end justify-start shrink-0">
               <img
                 src={card.icon}
                 alt=""
