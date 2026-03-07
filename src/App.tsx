@@ -8,14 +8,17 @@ import FaqSection from './components/faq-section'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--Base-Black)] text-white flex flex-col gap-[40px]">
+    <div className="min-h-screen bg-[var(--Base-Black)] text-white flex flex-col">
       <HeroSection />
-      <PlatformResults />
-      <TrustedGlobally />
-      <WhyChooseCexdex />
-      <MarketPlatform />
-      <LiveCryptoPrices />
-      <FaqSection />
+      <div className="h-[100px] shrink-0" aria-hidden />
+      <div className="flex flex-col gap-[40px]">
+        <PlatformResults />
+        <TrustedGlobally />
+        <WhyChooseCexdex />
+        <MarketPlatform />
+        <LiveCryptoPrices />
+        <FaqSection />
+      </div>
     </div>
   )
 }

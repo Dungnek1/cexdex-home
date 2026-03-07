@@ -46,18 +46,18 @@ export default function TrustedGlobally() {
     <section className="bg-[var(--Base-Black)]">
       {/* Figma 1253:175758: tablet 696px, title + subtitle stack vertical; desktop: row */}
       <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px]">
-        <div className="flex flex-col gap-8 tablet:flex-col tablet:gap-4 tablet:items-start tablet:max-w-[696px] tablet:mx-auto lg:max-w-none lg:mx-0 lg:flex-row lg:items-center lg:gap-[120px]">
-          {/* Title block — Figma: 2 diamonds 12px gap 8, title 30px, w-226 */}
-          <div className="flex flex-col gap-2.5 tablet:gap-[10px] shrink-0 tablet:w-[226px] lg:w-[226px]">
-            <div className="flex gap-1 tablet:gap-2 items-center">
-              <span className="inline-block w-2 h-2 tablet:w-3 tablet:h-3 rotate-45 bg-[#f1f1f1]" aria-hidden />
-              <span className="inline-block w-2 h-2 tablet:w-3 tablet:h-3 rotate-45 bg-[#f1f1f1]" aria-hidden />
+        <div className="flex flex-col gap-4 tablet:flex-col tablet:gap-4 tablet:items-start tablet:max-w-[696px] tablet:mx-auto lg:max-w-none lg:mx-0 lg:flex-row lg:items-center lg:gap-[120px]">
+          {/* Title block — mobile: 24px; tablet+: 30px; 2 diamonds 12px gap 8 */}
+          <div className="flex flex-col gap-2 tablet:gap-[10px] shrink-0 tablet:w-[226px] lg:w-[226px]">
+            <div className="flex gap-2 items-center">
+              <span className="inline-block w-3 h-3 rotate-45 bg-[#f1f1f1]" aria-hidden />
+              <span className="inline-block w-3 h-3 rotate-45 bg-[#f1f1f1]" aria-hidden />
             </div>
-            <h2 className="text-[30px] leading-[38px] text-[#f1f1f1] font-normal">
+            <h2 className="text-[24px] tablet:text-[30px] leading-[32px] tablet:leading-[38px] text-[#f1f1f1] font-normal">
               Trusted Globally
             </h2>
           </div>
-          {/* Subtitle — Figma: 20px leading 30px, full width below title on tablet */}
+          {/* Subtitle — mobile: 18px; tablet+: 20px */}
           <div className="flex flex-col justify-center min-w-0 tablet:w-full">
             <p className="text-[18px] tablet:text-[20px] leading-[28px] tablet:leading-[30px] font-light text-[#939393]">
               Powered by trusted partners, built for global compliance
