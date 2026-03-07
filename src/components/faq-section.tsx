@@ -51,6 +51,46 @@ function MinusIcon() {
   )
 }
 
+function FaqItem({ faq, isOpen, onToggle }: { faq: typeof FAQS[number]; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div
+      className="rounded-[12px] overflow-hidden w-full"
+      style={{
+        background: isOpen ? 'var(--base-bg-2, #141414)' : 'transparent',
+        border: isOpen ? 'none' : '1px solid var(--gray-90, #303030)',
+      }}
+    >
+      <button
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={`faq-answer-${faq.id}`}
+        onClick={onToggle}
+        className={`w-full flex flex-col text-left cursor-pointer border-b border-solid ${isOpen ? 'gap-2 px-[30px] py-5' : 'gap-3 p-[30px]'}`}
+        style={{ borderColor: isOpen ? 'var(--gray-90, #303030)' : 'transparent' }}
+      >
+        <div className="flex items-center justify-between w-full">
+          <span className="text-[16px] leading-[24px] font-normal font-manrope text-[var(--secondary-50,#a8bfff)]">
+            {faq.id}
+          </span>
+          <span className="text-[var(--gray-10,#f1f1f1)]">
+            {isOpen ? <MinusIcon /> : <PlusIcon />}
+          </span>
+        </div>
+        <p className="text-[24px] leading-[32px] font-light w-full text-[var(--gray-10,#f1f1f1)]">
+          {faq.question}
+        </p>
+      </button>
+      {isOpen && (
+        <div id={`faq-answer-${faq.id}`} role="region" className="px-[30px] py-5">
+          <p className="text-[16px] leading-[24px] font-light font-manrope text-[var(--gray-50,#939393)]">
+            {faq.answer}
+          </p>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function FaqSection() {
   const [openId, setOpenId] = useState<string | null>(null)
 
@@ -59,90 +99,29 @@ export default function FaqSection() {
       className="flex flex-col items-center w-full"
       style={{ background: 'var(--base-black, #000)' }}
     >
-      <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] flex flex-col gap-10 items-center">
+      <div className="w-full section-px flex flex-col gap-10 items-center">
         <div className="flex flex-col gap-4 items-center justify-center w-full min-h-[106px]">
           <div className="flex items-center justify-center gap-4 h-[30px]">
             <DiamondIcon />
-            <p
-              className="text-[20px] leading-[30px] font-normal whitespace-nowrap"
-              style={{ fontFamily: 'Manrope, sans-serif', color: 'var(--gray-10, #f1f1f1)' }}
-            >
+            <p className="text-[20px] leading-[30px] font-normal whitespace-nowrap font-manrope text-[var(--gray-10,#f1f1f1)]">
               Support 24/7
             </p>
             <DiamondIcon />
           </div>
-          <p
-            className="text-[36px] tablet:text-[44px] lg:text-[48px] leading-[44px] tablet:leading-[44px] lg:leading-[60px] tracking-[-0.96px] text-center whitespace-nowrap"
-            style={{ fontFamily: 'inherit', color: 'var(--gray-10, #f1f1f1)' }}
-          >
+          <p className="text-[36px] tablet:text-[44px] lg:text-[48px] leading-[44px] tablet:leading-[44px] lg:leading-[60px] tracking-[-0.96px] text-center whitespace-nowrap text-[var(--gray-10,#f1f1f1)]">
             FAQs About CEXDEX
           </p>
         </div>
 
         <div className="w-full max-w-[800px] flex flex-col gap-5">
-          {FAQS.map((faq) => {
-            const isOpen = openId === faq.id
-            return (
-              <div
-                key={faq.id}
-                className="rounded-[12px] overflow-hidden w-full"
-                style={{
-                  background: isOpen ? 'var(--base-bg-2, #141414)' : 'transparent',
-                  border: isOpen ? 'none' : '1px solid var(--gray-90, #303030)',
-                }}
-              >
-                <button
-                  type="button"
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${faq.id}`}
-                  onClick={() => setOpenId(isOpen ? null : faq.id)}
-                  className={`w-full flex flex-col text-left cursor-pointer border-b border-solid ${isOpen ? 'gap-2 px-[30px] py-5' : 'gap-3 p-[30px]'
-                    }`}
-                  style={{
-                    borderColor: isOpen ? 'var(--gray-90, #303030)' : 'transparent',
-                  }}
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <span
-                      className="text-[16px] leading-[24px] font-normal"
-                      style={{
-                        fontFamily: 'Manrope, sans-serif',
-                        color: 'var(--secondary-50, #a8bfff)',
-                      }}
-                    >
-                      {faq.id}
-                    </span>
-                    <span className="text-[var(--gray-10,#f1f1f1)]">
-                      {isOpen ? <MinusIcon /> : <PlusIcon />}
-                    </span>
-                  </div>
-                  <p
-                    className="text-[24px] leading-[32px] font-light w-full"
-                    style={{
-                      fontFamily: 'inherit',
-                      color: 'var(--gray-10, #f1f1f1)',
-                      fontWeight: 300,
-                    }}
-                  >
-                    {faq.question}
-                  </p>
-                </button>
-                {isOpen && (
-                  <div id={`faq-answer-${faq.id}`} role="region" className="px-[30px] py-5">
-                    <p
-                      className="text-[16px] leading-[24px] font-light"
-                      style={{
-                        fontFamily: 'Manrope, sans-serif',
-                        color: 'var(--gray-50, #939393)',
-                      }}
-                    >
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            )
-          })}
+          {FAQS.map((faq) => (
+            <FaqItem
+              key={faq.id}
+              faq={faq}
+              isOpen={openId === faq.id}
+              onToggle={() => setOpenId(openId === faq.id ? null : faq.id)}
+            />
+          ))}
         </div>
       </div>
     </section>

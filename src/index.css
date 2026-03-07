@@ -29,6 +29,46 @@ body {
   font-family: inherit;
 }
 
+/* Reusable utility: Manrope body font */
+.font-manrope {
+  font-family: Manrope, sans-serif;
+}
+
+/* Reusable utility: gradient heading text */
+.gradient-heading {
+  background: linear-gradient(180deg, #aeaeae 0%, rgba(255, 255, 255, 0.6) 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Reusable utility: section horizontal padding */
+.section-px {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (min-width: 1024px) {
+  .section-px {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .section-px {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
