@@ -25,3 +25,8 @@ dist-ssr
 
 # MCP config (contains tokens)
 .mcp.json
+
+# AI-generated rules and skills
+.claude/
+.cursor/
+.opencode/

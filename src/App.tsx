@@ -8,7 +8,7 @@ import FaqSection from './components/faq-section'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen bg-[var(--Base-Black)] text-white">
       <HeroSection />
       <PlatformResults />
       <TrustedGlobally />

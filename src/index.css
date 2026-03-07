@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+/* PolySans Trial = PolySans Neutral (Figma), áp cho cả dự án */
+/* Design tokens aligned with Figma CEXDEX 2026 (node 1253:142911) */
+:root {
+  font-family:
+    "PolySans Neutral", "PolySans Trial", ui-sans-serif, system-ui, sans-serif;
+  --Base-Black: #000;
+  --base-black: #000;
+  --base-bg-2: #141414;
+  --gray-90: #303030;
+  --gray-80: #484848;
+  --gray-50: #939393;
+  --gray-10: #f1f1f1;
+  --green-40: #42ec8c;
+  --red-40: #d25535;
+  --secondary-50: #a8bfff;
+  --base-bg-1: #1a1a1a;
+  --gray-60: #787878;
+  --gray-30: #c9c9c9;
+  --brand-50: #402c96;
+  --brand-40: #6353aa;
+}
+
+body {
+  font-family: inherit;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.trusted-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.hero-trading-marquee {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}

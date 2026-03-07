@@ -1,67 +1,98 @@
-/* Why Choose CEXDEX - 6 feature cards grid */
+/* Why Choose CEXDEX — Figma 1247:141328: header + 6 cards, border #6353aa, icons from public/whychose */
 
-const features = [
+const WHY_CHOSE_ICONS = [
+  '/whychose/Frame (1).svg',
+  '/whychose/Frame 2.png',
+  '/whychose/Frame (3).svg',
+  '/whychose/Frame (4).svg',
+  '/whychose/Frame.png',
+  '/whychose/support-3d-icon-png-download-8688992 1.svg',
+] as const
+
+const FEATURES: { title: string; description: string }[] = [
   {
-    icon: '💰',
     title: 'Buy & Sell Crypto',
-    description: 'AI engine analyzes markets, enabling faster and more accurate trading.',
-    color: 'text-purple-400',
+    description: 'AI engine analyzes markets, enabling faster and more accurate trading',
   },
   {
-    icon: '📊',
-    title: 'Track Assets',
-    description: 'We transform ideas into simple solutions reaching potential customers.',
-    color: 'text-pink-400',
+    title: 'Trade Assets',
+    description: 'We transform ideas into simple solutions reaching potential customers',
   },
   {
-    icon: '🎁',
     title: 'Earn Rewards for Trading',
-    description: "We identify ideas, making them usable and reaching potential customers.",
-    color: 'text-yellow-400',
+    description: 'We simplify ideas, making them usable and reaching potential customers',
   },
   {
-    icon: '⚡',
     title: 'Fast Execution',
-    description: 'Ultra low latency technology processes all trades within milliseconds.',
-    color: 'text-blue-400',
+    description: 'Ultra-low latency technology processes all transactions within milliseconds',
   },
   {
-    icon: '🛡️',
     title: 'Safe & Reliable',
-    description: 'Cold wallets, multi-layer signatures, and regular audit keep your assets safe.',
-    color: 'text-green-400',
+    description: 'Cold wallets, multi-layer signatures, and regular audits keep your assets safe',
   },
   {
-    icon: '🕐',
     title: '24/7 Support',
-    description: 'Support is always available 24/7 on both desktop and mobile devices.',
-    color: 'text-cyan-400',
+    description: 'Support is always available 24/7, on both desktop and mobile devices',
   },
 ]
 
+function FeatureCard({ title, description, iconSlot }: { title: string; description: string; iconSlot: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-3 rounded-xl border border-[#6353aa] bg-black p-10 min-w-0">
+      <div className="h-[90px] w-[100px] flex items-center justify-center shrink-0">
+        {iconSlot}
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-[24px] leading-[32px] text-[#402c96] font-normal">
+          {title}
+        </h3>
+        <p className="text-[16px] leading-6 font-light text-[#aeaeae]">
+          {description}
+        </p>
+      </div>
+    </div>
+  )
+}
+
 export default function WhyChooseCexdex() {
   return (
-    <section className="bg-gray-950 py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-sm text-gray-500 mb-3">Why choose CEXDEX</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-12">
-          The reasons global traders trust<br />
-          CEXDEX for reliable market access
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="bg-gray-900/60 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition-colors"
-            >
-              <div className="text-3xl mb-4">{feature.icon}</div>
-              <h3 className={`text-sm font-semibold mb-2 ${feature.color}`}>
-                {feature.title}
-              </h3>
-              <p className="text-sm text-gray-500">{feature.description}</p>
+    <section className="bg-[var(--Base-Black)] py-20">
+      {/* 1440: content 1200px; inner 776px header block, grid 1200 */}
+      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10 lg:px-0">
+        <div className="flex flex-col gap-[50px]">
+          {/* Header — Why choose CEXDEX (30px) + subtitle 792px max, Display lg 48/60 */}
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center justify-between w-full">
+              <p className="text-[20px] leading-[30px] text-[#f1f1f1]">
+                Why choose <span className="text-[#f1f1f1]">CEXDEX</span>
+              </p>
+              <div className="flex gap-1 items-center">
+                <span className="inline-block w-2 h-2 rotate-45 bg-[#f1f1f1]" aria-hidden />
+                <span className="inline-block w-2 h-2 rotate-45 bg-[#f1f1f1]" aria-hidden />
+              </div>
             </div>
-          ))}
+            <p className="text-[48px] leading-[60px] tracking-[-0.96px] text-[#f1f1f1] max-w-[792px]">
+              The reasons global traders trust CEXDEX for reliable market access
+            </p>
+          </div>
+
+          {/* Grid 2x3 — gap 24px, cards 384x270 (Figma Gird) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {FEATURES.map((f, i) => (
+              <FeatureCard
+                key={f.title}
+                title={f.title}
+                description={f.description}
+                iconSlot={
+                  <img
+                    src={WHY_CHOSE_ICONS[i]}
+                    alt=""
+                    className="h-[90px] w-[100px] object-contain object-left"
+                  />
+                }
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
