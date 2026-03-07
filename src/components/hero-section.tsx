@@ -1,18 +1,6 @@
 /* Hero — Figma 1528:172953 Group (Banner): 800px, strip, coin, CTA at 630px */
 
-function DiamondIcon({ size = 12 }: { size?: number }) {
-  return (
-    <span
-      className="shrink-0 rotate-45"
-      style={{
-        width: size,
-        height: size,
-        background: 'var(--gray-10, #f1f1f1)',
-      }}
-      aria-hidden
-    />
-  )
-}
+import DiamondIcon from './diamond-icon'
 
 export default function HeroSection() {
   return (
@@ -24,43 +12,26 @@ export default function HeroSection() {
         height: 800,
       }}
     >
-      {/* Background — Figma 1528:172955 */}
+      {/* Background — Figma 1528:172955: full width, height scales proportionally */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-top bg-cover pointer-events-none"
-        style={{ backgroundImage: 'url(/bannerhero.svg)' }}
+        className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
+        style={{
+          backgroundImage: 'url(/bannerhero.svg)',
+          backgroundSize: '100% auto',
+        }}
       />
 
-      {/* Strip "TRADING NOW" — Figma 1528:172973: h-150, top calc(50%-25px), border-b */}
+      {/* Strip "TRADING NOW" — centered on coin (coin top = 50%-30px) */}
       <div
-        className="absolute left-0 right-0 overflow-hidden pointer-events-none z-0 border-b border-solid"
-        style={{
-          top: 'calc(50% - 25px)',
-          height: 150,
-          borderColor: 'var(--gray-80, #484848)',
-        }}
+        className="absolute left-0 right-0 h-[160px] overflow-hidden pointer-events-none z-0 border-b border-[var(--gray-80,#484848)]"
+        style={{ top: 'calc(50% - 30px)', transform: 'translateY(-50%)' }}
       >
-        <div
-          className="absolute left-1/2 -translate-x-1/2 overflow-hidden"
-          style={{ top: 12, width: 1540, maxWidth: '100%', height: 174 }}
-        >
-          <div
-            className="absolute left-0 w-max flex gap-6 whitespace-nowrap -translate-y-1/2"
-            style={{ top: 'calc(50% + 6px)' }}
-          >
-            <div className="hero-trading-marquee flex gap-6">
-              <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px] text-[color:var(--gray-80,#484848)]">
-                TRADING
-              </span>
-              <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px] text-[color:var(--gray-80,#484848)]">
-                NOW
-              </span>
-              <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px] text-[color:var(--gray-80,#484848)]">
-                TRADING
-              </span>
-              <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px] text-[color:var(--gray-80,#484848)]">
-                NOW
-              </span>
-            </div>
+        <div className="absolute inset-0 flex items-center overflow-hidden">
+          <div className="hero-trading-marquee flex gap-6 w-max whitespace-nowrap text-[color:var(--gray-80,#484848)]">
+            <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px]">TRADING</span>
+            <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px]">NOW</span>
+            <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px]">TRADING</span>
+            <span className="font-normal leading-none tracking-[-0.04em] md:tracking-[-9.6px] select-none text-[120px] md:text-[180px] lg:text-[240px]">NOW</span>
           </div>
         </div>
       </div>
@@ -89,12 +60,9 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom row — Figma 1528:172956: top 630px, 1200px, items-end justify-between */}
-      <div
-        className="absolute left-0 right-0 flex items-end justify-center z-10"
-        style={{ top: 630, bottom: 0 }}
-      >
-        <div className="content-wrap w-full flex flex-col lg:flex-row gap-6 lg:gap-0 lg:items-end lg:justify-between pb-0">
+      {/* Bottom row — BUILT FOR TRADERS + CTA */}
+      <div className="absolute inset-x-0 bottom-0 top-[630px] flex items-end justify-center z-10">
+        <div className="w-full px-6 md:px-10 xl:px-[120px] flex flex-col lg:flex-row gap-6 lg:gap-0 lg:items-end lg:justify-between pb-[50px]">
           {/* Left: headline — Figma 1528:172957–172961: 48px, gradient, two lines */}
           <div className="flex flex-col items-start shrink-0">
             <p
@@ -140,7 +108,7 @@ export default function HeroSection() {
                 Create your trading account
               </span>
             </div>
-            <div className="flex gap-1 items-end flex-wrap">
+            <div className="flex gap-3 items-center">
               <div
                 className="relative h-10 shrink-0 rounded-lg overflow-hidden flex items-center px-3 backdrop-blur-[5px]"
                 style={{

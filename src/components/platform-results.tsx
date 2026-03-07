@@ -46,9 +46,9 @@ function StatBlock({
 
 export default function PlatformResults() {
   return (
-    <section className="bg-[var(--Base-Black)] py-20">
+    <section className="bg-[var(--Base-Black)]">
       {/* 1440: content 1200px centered (120px margin); smaller: px */}
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10 lg:px-0">
+      <div className="w-full px-6 md:px-10 xl:px-[120px]">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-[120px]">
           {/* Trái: Platform Results — 226px, Display sm 30px */}
           <div className="flex flex-col gap-2.5 pt-1.5 md:w-[226px] md:shrink-0">

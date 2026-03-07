@@ -1,6 +1,7 @@
 /* FAQ Section — Figma 1253:143221: Support 24/7 + FAQs About CEXDEX + accordion */
 
 import { useState } from 'react'
+import DiamondIcon from './diamond-icon'
 
 const FAQS = [
   {
@@ -34,16 +35,6 @@ const FAQS = [
   },
 ]
 
-function DiamondIcon() {
-  return (
-    <span
-      className="w-3 h-3 rotate-45 shrink-0"
-      style={{ background: 'var(--gray-10, #f1f1f1)' }}
-      aria-hidden
-    />
-  )
-}
-
 function PlusIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0" aria-hidden>
@@ -61,15 +52,15 @@ function MinusIcon() {
 }
 
 export default function FaqSection() {
-  const [openId, setOpenId] = useState<string | null>('01')
+  const [openId, setOpenId] = useState<string | null>(null)
 
   return (
     <section
-      className="flex flex-col items-center w-full py-16"
+      className="flex flex-col items-center w-full"
       style={{ background: 'var(--base-black, #000)' }}
     >
       {/* 1440: content 1200px; accordion max 800px centered (Figma 320+800) */}
-      <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-0 flex flex-col gap-10 items-center">
+      <div className="w-full px-6 md:px-10 xl:px-[120px] flex flex-col gap-10 items-center">
         {/* Header — diamond + "Support 24/7" + diamond, then title (Figma 1253:143222) */}
         <div className="flex flex-col gap-4 items-center justify-center w-full min-h-[106px]">
           <div className="flex items-center justify-center gap-4 h-[30px]">
@@ -105,6 +96,8 @@ export default function FaqSection() {
               >
                 <button
                   type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${faq.id}`}
                   onClick={() => setOpenId(isOpen ? null : faq.id)}
                   className={`w-full flex flex-col text-left cursor-pointer border-b border-solid ${isOpen ? 'gap-2 px-[30px] py-5' : 'gap-3 p-[30px]'
                     }`}
@@ -138,7 +131,7 @@ export default function FaqSection() {
                   </p>
                 </button>
                 {isOpen && (
-                  <div className="px-[30px] py-5">
+                  <div id={`faq-answer-${faq.id}`} role="region" className="px-[30px] py-5">
                     <p
                       className="text-[16px] leading-[24px] font-light"
                       style={{

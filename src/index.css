@@ -20,15 +20,6 @@
   --gray-30: #c9c9c9;
   --brand-50: #402c96;
   --brand-40: #6353aa;
-  --content-max: 1200px;
-  --content-padding: 40px;
-}
-
-@media (min-width: 1440px) {
-  :root {
-    /* Figma 1528:172443 — 1440: content 1200, margin 120 */
-    --content-padding: 120px;
-  }
 }
 
 body {
@@ -52,25 +43,4 @@ body {
   animation: marquee 35s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
-}
-
-/* 1280 base → 1440 scale: content wrapper */
-.content-wrap {
-  max-width: var(--content-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-@media (min-width: 768px) {
-  .content-wrap {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-@media (min-width: 1280px) {
-  .content-wrap {
-    padding-left: var(--content-padding);
-    padding-right: var(--content-padding);
-  }
 }

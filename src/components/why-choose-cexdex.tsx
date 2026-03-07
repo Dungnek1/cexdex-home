@@ -56,9 +56,9 @@ function FeatureCard({ title, description, iconSlot }: { title: string; descript
 
 export default function WhyChooseCexdex() {
   return (
-    <section className="bg-[var(--Base-Black)] py-20">
+    <section className="bg-[var(--Base-Black)]">
       {/* 1440: content 1200px; inner 776px header block, grid 1200 */}
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10 lg:px-0">
+      <div className="w-full px-6 md:px-10 xl:px-[120px]">
         <div className="flex flex-col gap-[50px]">
           {/* Header — Why choose CEXDEX (30px) + subtitle 792px max, Display lg 48/60 */}
           <div className="flex flex-col gap-3">

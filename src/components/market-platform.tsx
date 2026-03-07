@@ -35,7 +35,7 @@ const cards = [
 export default function MarketPlatform() {
   return (
     <section
-      className="flex flex-col items-center gap-[70px] w-full min-h-[500px] py-[70px]"
+      className="flex flex-col items-center gap-[70px] w-full min-h-[500px]"
       style={{ background: 'var(--base-black, #000)' }}
     >
       {/* Header strip — title chìm: nửa dưới bị cắt bởi overflow */}
@@ -59,8 +59,8 @@ export default function MarketPlatform() {
         </span>
       </div>
 
-      {/* Figma 172602: 1200 content, 3 cards 384x500, gap 24 */}
-      <div className="content-wrap w-full grid grid-cols-1 md:grid-cols-3 gap-[24px]">
+      {/* 1200 content, 3 cards, gap 24 */}
+      <div className="w-full px-6 md:px-10 xl:px-[120px] grid grid-cols-1 md:grid-cols-3 gap-6">
         {cards.map((card) => (
           <div
             key={card.tag}

@@ -29,24 +29,24 @@ function LogoItem({ name, src, height = DEFAULT_LOGO_HEIGHT }: { name: string; s
 }
 
 function LogoCarousel() {
-  const list = PARTNER_LOGOS
+  /* 4 copies to ensure seamless loop on wide screens (5 logos x 180px = 900px per set) */
+  const sets = [0, 1, 2, 3]
   return (
     <div className="trusted-marquee flex w-max">
-      {list.map((logo, i) => (
-        <LogoItem key={`a-${i}`} name={logo.name} src={logo.src} height={logo.height} />
-      ))}
-      {list.map((logo, i) => (
-        <LogoItem key={`b-${i}`} name={logo.name} src={logo.src} height={logo.height} />
-      ))}
+      {sets.map((s) =>
+        PARTNER_LOGOS.map((logo, i) => (
+          <LogoItem key={`${s}-${i}`} name={logo.name} src={logo.src} height={logo.height} />
+        ))
+      )}
     </div>
   )
 }
 
 export default function TrustedGlobally() {
   return (
-    <section className="bg-[var(--Base-Black)] py-16">
+    <section className="bg-[var(--Base-Black)]">
       {/* 1440: content 1200px centered */}
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10 lg:px-0">
+      <div className="w-full px-6 md:px-10 xl:px-[120px]">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-[120px]">
           <div className="flex flex-col gap-2.5 shrink-0 sm:w-[226px]">
             <div className="flex gap-2 items-center">
