@@ -28,7 +28,6 @@ export default function LiveCryptoPrices() {
       className="flex flex-col items-center justify-center w-full relative"
       style={{ background: 'var(--base-black, #000)' }}
     >
-      {/* Ellipse glow — mobile: hiện full ellipse; tablet+ nửa trên */}
       <div className="w-full overflow-hidden relative">
         <div className="h-[130px] tablet:h-[65px] overflow-hidden relative">
           <img
@@ -40,7 +39,6 @@ export default function LiveCryptoPrices() {
         </div>
 
         <div className="flex flex-col gap-[30px] tablet:gap-[40px] w-full">
-        {/* Header — mobile: đè lên nửa dưới ellipse; khung nền đen kéo xuống tận dưới div */}
         <div className="relative z-10 -mt-[65px] tablet:mt-0 w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] tablet:pt-10">
         <div
           className="flex flex-col gap-[10px] tablet:gap-[16px] items-center justify-center w-full pt-[30px] pb-5 tablet:pt-0 tablet:pb-0 rounded-none border-0 bg-[var(--base-black,#000)] tablet:bg-transparent"
@@ -69,14 +67,12 @@ export default function LiveCryptoPrices() {
         </div>
         </div>
 
-        {/* Table — mobile: scroll ngang; tablet+ full */}
         <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] pb-[20px] tablet:pb-5 lg:pb-5">
         <div className="w-full overflow-x-auto overflow-y-hidden scroll-smooth tablet:overflow-visible">
           <div
             className="border border-solid rounded-[12px] overflow-hidden min-w-[880px] tablet:min-w-0 w-full"
             style={{ borderColor: 'var(--gray-90, #303030)' }}
           >
-          {/* Table header — h-70, 16px #939393 */}
           <div
             className="flex items-center w-full border-b border-solid"
             style={{ borderColor: 'var(--gray-90, #303030)', minHeight: 70 }}
@@ -123,7 +119,6 @@ export default function LiveCryptoPrices() {
             </div>
           </div>
 
-          {/* Body rows — h-100, pl-28 asset, p-14 others */}
           <div className="flex flex-col">
             {COINS.map((coin) => (
               <div key={coin.symbol}>

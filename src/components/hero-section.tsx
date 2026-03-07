@@ -8,7 +8,6 @@ export default function HeroSection() {
       className="relative overflow-hidden flex flex-col min-h-[600px] h-[600px] tablet:min-h-[465px] tablet:h-[465px] lg:min-h-[800px] lg:h-[800px]"
       style={{ background: 'var(--base-black, #000)' }}
     >
-      {/* Banner — Figma 1253:157065 "Screen Recording...": 959×600, centered, cover */}
       <div
         className="absolute inset-0 bg-no-repeat bg-center pointer-events-none overflow-hidden"
         style={{
@@ -18,7 +17,6 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Strip "TRADING NOW" — line nâng lên, chữ giữ nguyên vị trí */}
       <div
         className="hero-trading-strip absolute left-0 right-0 h-[88px] tablet:h-[88px] lg:h-[160px] overflow-hidden pointer-events-none z-0"
         style={{ top: 'calc(50% - 40px)', transform: 'translateY(-50%)' }}
@@ -38,7 +36,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Coin — mobile: 215×220; tablet: 303×310; desktop: 510×520 */}
       <div
         className="hero-coin-container absolute left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 h-[220px] w-[215px] tablet:h-[310px] tablet:w-[303px] lg:h-[520px] lg:w-[510px]"
         style={{ top: 'calc(50% - 40px)' }}
@@ -58,10 +55,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom row — mobile: stacked px-24 pb-20 gap-12; tablet+: row */}
       <div className="absolute inset-x-0 bottom-0 top-[380px] tablet:top-[377px] lg:top-[630px] flex items-end justify-center z-10">
         <div className="w-full px-[24px] tablet:px-[24px] lg:px-10 xl:px-[120px] flex flex-col tablet:flex-row tablet:items-end tablet:justify-between lg:flex-row gap-[12px] tablet:gap-6 lg:gap-0 lg:items-end lg:justify-between pb-5 tablet:pb-[6px] lg:pb-[50px]">
-          {/* Left: headline — mobile: 28px 3 lines; tablet: 26px; desktop: 48px */}
           <div className="flex flex-col items-start shrink-0">
             <p
               className="font-normal leading-[1.2] tablet:leading-[32px] lg:leading-[60px] tracking-[-0.56px] tablet:tracking-[-0.52px] lg:tracking-[-0.96px] uppercase whitespace-nowrap text-[28px] tablet:text-[26px] lg:text-[48px]"
@@ -113,7 +108,6 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Right: CTA — mobile: diamond 6px, stacked, gap-8; tablet+: row */}
           <div
             className="flex flex-col gap-2 tablet:gap-2 lg:gap-3 w-full tablet:max-w-[280px] lg:max-w-none lg:w-[415px] shrink-0 pb-0 tablet:pb-[6px] lg:pb-3"
           >

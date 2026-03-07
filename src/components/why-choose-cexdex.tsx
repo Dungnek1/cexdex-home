@@ -57,10 +57,8 @@ function FeatureCard({ title, description, iconSlot }: { title: string; descript
 export default function WhyChooseCexdex() {
   return (
     <section className="bg-[var(--Base-Black)]">
-      {/* Figma 1253:175773: gap 12 header, subtitle 36/44 tablet, 545px max; cards gap 24 */}
       <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px]">
         <div className="flex flex-col gap-10 tablet:gap-[40px] lg:gap-[50px]">
-          {/* Header — Figma: gap 12, Why choose CEXDEX 20/30, diamonds 12px gap 8 */}
           <div className="flex flex-col gap-3 tablet:gap-[12px]">
             <div className="flex items-center justify-between w-full">
               <p className="text-[20px] leading-[30px] text-[#f1f1f1]">
@@ -76,7 +74,6 @@ export default function WhyChooseCexdex() {
             </p>
           </div>
 
-          {/* Grid 2x3 — Figma: gap 24 */}
           <div className="grid grid-cols-1 tablet:grid-cols-2 lg:grid-cols-3 gap-6 tablet:gap-[24px] lg:gap-[24px]">
             {FEATURES.map((f, i) => (
               <FeatureCard

@@ -44,10 +44,8 @@ function LogoCarousel() {
 export default function TrustedGlobally() {
   return (
     <section className="bg-[var(--Base-Black)]">
-      {/* Figma 1253:175758: tablet 696px, title + subtitle stack vertical; desktop: row */}
       <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px]">
         <div className="flex flex-col gap-4 tablet:flex-col tablet:gap-4 tablet:items-start tablet:max-w-[696px] tablet:mx-auto lg:max-w-none lg:mx-0 lg:flex-row lg:items-center lg:gap-[120px]">
-          {/* Title block — mobile: 24px; tablet+: 30px; 2 diamonds 12px gap 8 */}
           <div className="flex flex-col gap-2 tablet:gap-[10px] shrink-0 tablet:w-[226px] lg:w-[226px]">
             <div className="flex gap-2 items-center">
               <span className="inline-block w-3 h-3 rotate-45 bg-[#f1f1f1]" aria-hidden />
@@ -57,7 +55,6 @@ export default function TrustedGlobally() {
               Trusted Globally
             </h2>
           </div>
-          {/* Subtitle — mobile: 18px; tablet+: 20px */}
           <div className="flex flex-col justify-center min-w-0 tablet:w-full">
             <p className="text-[18px] tablet:text-[20px] leading-[28px] tablet:leading-[30px] font-light text-[#939393]">
               Powered by trusted partners, built for global compliance
@@ -66,7 +63,6 @@ export default function TrustedGlobally() {
         </div>
       </div>
 
-      {/* Partner strip — Figma: h-90, gradient 120px (#050505) */}
       <div className="pt-[30px] tablet:pt-[40px]">
         <div className="relative border-t border-b border-[#303030] h-[90px] overflow-hidden">
           <div className="absolute inset-0 flex items-center overflow-hidden">

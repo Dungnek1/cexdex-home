@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  /* Tablet breakpoint per Figma CEXDEX 2026 (744px) */
   --breakpoint-tablet: 744px;
 }
 
-/* PolySans Trial = PolySans Neutral (Figma), áp cho cả dự án */
-/* Design tokens aligned with Figma CEXDEX 2026 (node 1253:142911) */
+/* Design tokens — Figma CEXDEX 2026 */
 :root {
   font-family:
     "PolySans Neutral", "PolySans Trial", ui-sans-serif, system-ui, sans-serif;
@@ -50,7 +48,7 @@ body {
   backface-visibility: hidden;
 }
 
-/* Hero strip: clip chữ dưới line — mobile line cao hơn */
+/* Hero strip: clip chữ dưới line */
 .hero-trading-content {
   clip-path: inset(0 0 24px 0);
 }
@@ -65,7 +63,7 @@ body {
   }
 }
 
-/* Hero strip + coin: tablet 744px — ellipse 60px breathing (Figma) */
+/* Hero: tablet — strip + coin */
 @media (min-width: 744px) and (max-width: 1023px) {
   .hero-trading-strip {
     top: calc(50% - 8.5px) !important;
@@ -75,15 +73,14 @@ body {
   }
 }
 
-/* Platform Results: số — mobile only: top calc() line chìm xuống; tablet+ top-0 */
+/* Platform Results: số + line */
 @media (max-width: 743px) {
   .platform-stat-number {
-    /* Line lún vào số — xịch số xuống 1 chút (mobile only) */
     top: auto;
     bottom: -12px;
   }
   .platform-stat-number-wrap {
-    height: 80px !important; /* 60 + 20: line xuống thêm (mobile only) */
+    height: 80px !important;
   }
 }
 @media (min-width: 744px) {
@@ -93,21 +90,21 @@ body {
   }
 }
 
-/* Platform Results: tablet 744px — xịch số (500k, $80B+, ...) lên 1 xíu so với line */
+/* Platform Results: tablet — xịch số lên */
 @media (min-width: 744px) and (max-width: 1023px) {
   .platform-stat-number {
     transform: translateY(-6px);
   }
 }
 
-/* Platform Results: tablet 744px — xịch text (label + description) lên 1 xíu */
+/* Platform Results: tablet — xịch text lên */
 @media (min-width: 744px) and (max-width: 1023px) {
   .platform-stat-text {
     margin-top: -8px;
   }
 }
 
-/* Market Platform: clip chữ dưới line — mobile line thấp hơn */
+/* Market Platform: clip chữ dưới line */
 .market-platform-header-content {
   clip-path: inset(0 0 0 0);
 }
@@ -122,21 +119,21 @@ body {
   }
 }
 
-/* Market Platform: tablet 744px+ — xịch text lên 1 xíu */
+/* Market Platform: tablet — xịch text lên */
 @media (min-width: 744px) and (max-width: 1023px) {
   .market-platform-label {
     transform: translateY(calc(-50% - 28px)) !important;
   }
 }
 
-/* Market Platform: desktop 1024px+ — xịch text lên 1 xíu */
+/* Market Platform: desktop — xịch text lên */
 @media (min-width: 1024px) {
   .market-platform-label {
     transform: translateY(calc(-50% - 54px)) !important;
   }
 }
 
-/* Hero: desktop 1024px+ — center coin */
+/* Hero: desktop — center coin */
 @media (min-width: 1024px) {
   .hero-trading-strip {
     top: calc(50% - 30px) !important;

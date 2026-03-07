@@ -1,5 +1,3 @@
-/* Mini sparkline cho Live Crypto — đường gồ ghề, nhiều biến động */
-
 import { useMemo } from 'react'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 

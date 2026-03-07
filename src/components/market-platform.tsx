@@ -38,7 +38,6 @@ export default function MarketPlatform() {
       className="flex flex-col items-center gap-[70px] w-full min-h-[500px] py-[70px]"
       style={{ background: 'var(--base-black, #000)' }}
     >
-      {/* Header — Figma 1528:172600 h-154 border-b */}
       <div
         className="w-full h-[80px] tablet:h-[120px] lg:h-[154px] relative overflow-hidden flex items-center justify-center"
         style={{ borderColor: 'var(--gray-90, #303030)' }}
@@ -66,7 +65,6 @@ export default function MarketPlatform() {
         </div>
       </div>
 
-      {/* Cards — Figma 1528:172602: desktop flex gap-24 w-1200; mobile/tablet scroll */}
       <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] overflow-x-auto tablet:overflow-visible lg:overflow-visible scroll-smooth">
         <div className="flex flex-row tablet:flex-col lg:flex-row gap-6 tablet:gap-8 lg:gap-6 w-full min-w-max tablet:min-w-0 lg:min-w-0">
           {cards.map((card) => (
@@ -135,12 +133,6 @@ export default function MarketPlatform() {
     </section>
   )
 }
-
-
-
-
-
-
 
 
 

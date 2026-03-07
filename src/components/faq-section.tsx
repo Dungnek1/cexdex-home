@@ -59,9 +59,7 @@ export default function FaqSection() {
       className="flex flex-col items-center w-full"
       style={{ background: 'var(--base-black, #000)' }}
     >
-      {/* 1440: content 1200px; tablet 744: 24px padding, 696px content */}
       <div className="w-full px-6 tablet:px-6 lg:px-10 xl:px-[120px] flex flex-col gap-10 items-center">
-        {/* Header — diamond + "Support 24/7" + diamond, then title (Figma 1253:143222) */}
         <div className="flex flex-col gap-4 items-center justify-center w-full min-h-[106px]">
           <div className="flex items-center justify-center gap-4 h-[30px]">
             <DiamondIcon />
@@ -81,7 +79,6 @@ export default function FaqSection() {
           </p>
         </div>
 
-        {/* Accordion — max 800px, gap 20px (Figma 1253:143230) */}
         <div className="w-full max-w-[800px] flex flex-col gap-5">
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id

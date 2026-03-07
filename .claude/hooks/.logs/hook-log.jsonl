@@ -21,3 +21,4 @@
 {"ts":"2026-03-06T09:38:38.911Z","hook":"scout-block","tool":"Bash","dur":11,"status":"ok","exit":0,"error":""}
 {"ts":"2026-03-06T09:41:54.302Z","hook":"scout-block","tool":"Bash","dur":16,"status":"ok","exit":0,"error":""}
 {"ts":"2026-03-07T04:33:59.598Z","hook":"scout-block","tool":"Glob","dur":10,"status":"ok","exit":0,"error":""}
+{"ts":"2026-03-07T06:17:05.306Z","hook":"scout-block","tool":"Glob","dur":26,"status":"ok","exit":0,"error":""}
