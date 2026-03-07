@@ -94,7 +94,7 @@ export default function HeroSection() {
         className="absolute left-0 right-0 flex items-end justify-center z-10"
         style={{ top: 630, bottom: 0 }}
       >
-        <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-0 flex flex-col lg:flex-row gap-6 lg:gap-0 lg:items-end lg:justify-between pb-0">
+        <div className="content-wrap w-full flex flex-col lg:flex-row gap-6 lg:gap-0 lg:items-end lg:justify-between pb-0">
           {/* Left: headline — Figma 1528:172957–172961: 48px, gradient, two lines */}
           <div className="flex flex-col items-start shrink-0">
             <p
